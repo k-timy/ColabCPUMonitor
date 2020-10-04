@@ -19,8 +19,12 @@ for i in range(10):
     time.sleep(0.6)
 # done with the process.    
 
+# Calling stop function is necessary
 monitor.stop()
 ```
+
+When all your processes are finished, you need to stop the monitor by calling **stop()** function. Otherwise, the thread that it is running on keeps running for some reason that I don't know. In fact, since I have set that thread as **'Daemon'**, it is expected to be killed with force while the program's main thread is stopped for any reasons.
+However, on Google Colab, that thread is not stopped automatically.
 
 You can run this in [colab here](https://github.com/k-timy/SimpleCPUMonitor/blob/main/example.ipynb).
 
